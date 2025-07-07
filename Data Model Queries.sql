@@ -71,6 +71,11 @@ REFERENCES Pizza_Prices(pizza_name_id);
 ALTER TABLE FactPizzaSales
 RENAME TO Pizza_Orders;
 
+UPDATE pizza_orders
+SET order_date = DATE_ADD(order_date, INTERVAL (2024 - YEAR(order_date)) YEAR)
+WHERE YEAR(order_date) = 2015;
+
+select order_date from pizza_orders;
 
 
 
